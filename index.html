@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <div>
+                <span data-day-number></span>
+                <div>
+                    <span data-month></span>
+                    <span data-year></span>
+                </div>
+            </div>
+            <span data-day-of-week></span>
+        </div>
+        <div>
+            <ul data-to-do-list>
+                <!-- <li class="selectedToDo">
+                    <div>Buy new sweat shirt</div>
+                    <input type="radio">
+                    <div>
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <div>
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>Begin promotional phase</div>
+                    <input type="radio">
+                    <div>
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <div>
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>Read an article</div>
+                    <input type="radio" name="" id="">
+                    <div>
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <div>
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div data-create>
+            <i class="fa fa-plus"></i>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <!-- <span class="close">&times;</span> -->
+            <span class="warningMessage">You can't add empty to do</span>
+            <div>
+                <input type="text" class="addToDoField">
+                <span class="addToDo">Add To Do</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

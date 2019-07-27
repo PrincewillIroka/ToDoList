@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel|Hind+Siliguri|Roboto&display=swap');
+
+
+.boldText {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background: #f0efe9;
+
+    >.container {
+        max-width: 25%;
+        min-width: 25%;
+        height: 480px;
+        max-height: 480px;
+        background-color: #fff;
+        border: 1px solid #f4f4f4;
+        border-radius: 5px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+
+
+        >div:first-child {
+            @extend .flexRow;
+            justify-content: space-between;
+            align-items: center;
+
+            >div:nth-child(1) {
+                @extend .flexRow;
+                align-items: center;
+
+                >span:nth-child(1) {
+                    font-size: 34px;
+                    font-weight: bold;
+                    margin-right: 5px;
+                    font-family: 'Hind Siliguri', sans-serif;
+                }
+
+                >div:nth-child(2) {
+                    @extend .flexCol;
+                    text-align: center;
+
+                    >span {
+                        @extend .boldText;
+                        font-size: 11px;
+                    }
+
+                    >span:nth-child(2) {
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            >span:nth-child(2) {
+                @extend .boldText;
+                font-size: 13px;
+            }
+        }
+
+        >div:nth-child(2) {
+            margin-top: 20px;
+            width: 100%;
+            height: 400px;
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                list-style-type: none;
+                text-align: none;
+            }
+
+
+            [data-to-do-list] {
+                height: inherit;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #666;
+                    border-radius: 20px;
+                }
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    margin-bottom: 20px;
+                    align-items: center;
+                    justify-content: center;
+
+                    >div:nth-child(1) {
+                        font-family: 'Hind', sans-serif;
+                        color: #000;
+                        margin-right: auto;
+                        max-width: 70%;
+                    }
+
+                    >input[type='radio']:nth-child(2) {
+                        height: 20px;
+                        width: 20px;
+                        border: 2px solid #ccc;
+                        border-radius: 50%;
+                    }
+
+                    >div:nth-child(3) {
+                        color: #50e3a4;
+                        font-size: 20px;
+                        margin: 0 10px;
+                    }
+
+                    >div:nth-child(4) {
+                        color: #e36650;
+                        font-size: 20px;
+                    }
+                }
+
+                .selectedToDo {
+                    >div:nth-child(1) {
+                        opacity: 0.4;
+                    }
+
+                    >div:nth-child(2) {
+                        border: 2px solid #50e3a4;
+                    }
+                }
+
+                // input[type='radio'] {
+                //     -webkit-appearance: none;
+                //     -moz-appearance: none;
+                //     appearance: none;
+                // }
+            }
+        }
+
+        >div:nth-child(3) {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 510px;
+            margin-left: 130px;
+            color: rgba(0, 0, 0, 0.2);
+            background-color: #50e3a4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px
+        }
+    }
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px 20px;
+    border: 1px solid #888;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    >span:nth-child(1) {
+        visibility: hidden;
+        margin-bottom: 10px;
+        color: rgb(240, 44, 44);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+    }
+
+    >div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        >input {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 80%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 15px;
+            outline: none;
+
+            &:active {
+                border: 1px solid #50e3a4;
+            }
+        }
+
+        >span {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 13px 30px;
+            background-color: #50e3a4;
+            color: #fff;
+            border-radius: 20px;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    ::selection {
+        color: #000;
+        background: #f0f0f0;
+        font-size: 14px;
+    }
+
+    ::-moz-selection {
+        color: #000;
+        background: #f0f0f0;
+        font-size: 14px;
+    }
+}
+
+.close {
+    color: #aaa;
+    margin-left: auto;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
