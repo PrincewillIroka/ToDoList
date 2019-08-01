@@ -1,22 +1,3 @@
-const someToDos = [{
-    toDo: 'Take My Bath',
-    done: false
-}
-
-    ,
-{
-    toDo: 'Brush My Teeth',
-    done: true
-}
-
-    ,
-{
-    toDo: 'Comb My Hair',
-    done: false
-}
-
-];
-
 let toDoArray = []
 
 const startApp = () => {
